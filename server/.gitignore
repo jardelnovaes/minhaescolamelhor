@@ -1,0 +1,7 @@
+#Ignore storage because it's a temporary folder.
+storage/logs/*
+storage/framework/sessions/*
+storage/framework/views/*
+!storage/logs/file.txt
+!storage/framework/sessions/file.txt
+!storage/framework/views/file.txt
