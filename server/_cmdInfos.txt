@@ -1,0 +1,9 @@
+na pasta root do app:
+# php artisan migrate
+
+de onde quiser subir
+# git add .
+# git commit -am "COMENT"
+# git push origin master
+
+

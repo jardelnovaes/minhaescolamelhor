@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+	<title>Minha Escola Melhor</title>
+    <script src="assets/vendor/angular/angular.min.js"></script>
+  </head>
+  <body ng-app="minhaEscolaMelhor">
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>....{{yourName}}!</h1>	  
+    </div>
+	
+	
+	<div ng-controller="escolasController">		
+		<div ng-repeat="item in schools track by item.codEscola">
+			 [{{$index + 1}}] {{item.codEscola}} - {{item.endereco.uf}} - {{item.nome}} 
+		</div>
+		
+	</div>
+	
+  </body>
+  
+  <script src="app/app.module.js"></script>
+  <script src="app/components/appCivico/escolas/escolasController.js"></script>
+  <script src="app/components/appCivico/escolas/escolasService.js"></script>
+               
+</html>
