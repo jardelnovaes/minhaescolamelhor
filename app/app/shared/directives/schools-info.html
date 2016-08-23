@@ -1,0 +1,4 @@
+<!-- <div ng-repeat="item in items | filter:searchText track by item.nome "> -->
+<div ng-repeat="item in items | filter:filterFied track by item.nome "> 
+	{{item.codEscola}} - {{item.endereco.uf}} - {{item.nome}}
+</div> 
