@@ -1,21 +1,107 @@
 <!doctype html>
 <html>
-  <head>
-	<title>Minha Escola Melhor</title>
-    <script src="assets/vendor/angular/angular.min.js"></script>
-  </head>
-  <body ng-app="minhaEscolaMelhor">
-    <div ng-controller="schoolController">		
-		<label>Procurar: <input ng-model="searchText"></label>  {{location.name}} - 
-		<label>P&aacute;gina: <input ng-model="schoolsPage" size="3"></label> 
-		<button ng-click="getSchools()">Go</button>
-		<button ng-click="getNextSchools()">Next</button>
-		<br/><br/>
-		<schools-info items="schools" filter="searchText" />
-	</div>
-	
-  </body>
-  
+    <head>
+        <title>Minha Escola Melhor</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		
+		<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="assets/css/app.css" rel="stylesheet" type="text/css"/>
+		
+		<script type="text/javascript" src="assets/vendor/angular/angular.min.js"></script>			
+		<script type="text/javascript" src="assets/vendor/jquery/jquery-2.2.1.min.js"></script>		
+		<script type="text/javascript" src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+		
+		<!--
+		<script src="cordova.js"></script>
+		angular.module('APPNAME', ['ionic', 'ngCordova'])
+
+.run(function($ionicPlatform, $cordovaSplashscreen) {
+    $ionicPlatform.ready(function() {
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        if (window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        }
+        if(window.navigator && window.navigator.splashscreen) {
+            window.plugins.orientationLock.unlock();
+        }
+        if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+        if (window.cordova){
+            // Hide Splash Screen when App is Loaded
+            $cordovaSplashscreen.hide();
+        }
+    });
+});
+		-->
+	</head>
+	<body ng-app="minhaEscolaMelhor">
+		<header>
+			<nav class="navbar navbar-default navbar-static">
+				<div class="container-fluid">
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Minha Escola Melhor</a>
+					</div>
+					<div id="navbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="#">Meus dados</a></li>
+							<li><a href="#">Minha Escola</a></li>
+							<li><a href="#">Minhas avalia&ccedil;&otilde;es</a></li>
+							<li><a href="">About</a></li>
+							<li><a href="">Contact</a></li>
+						</ul>
+						
+						<ul class="nav navbar-nav navbar-right">
+							<!-- if (Auth::guest()) -->
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Registrar</a></li>
+							<!-- @else
+							
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ userName}} <span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Logout</a></li>
+									</ul>
+								</li>
+							-->
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</nav>
+		</header>		
+		<!-- <div class="col-lg-10 col-md-10 col-sm-1 col-xs-1"> -->		
+			<div class="container-fluid">
+				<div ng-controller="schoolController">		
+					<label>Procurar: <input ng-model="searchText"></label>  {{location.name}} - 
+					<label>P&aacute;gina: <input ng-model="schoolsPage" size="3"></label> 
+					<button ng-click="getSchools()">Go</button>
+					<button ng-click="getPreviousSchools()">Previous</button>
+					<button ng-click="getNextSchools()">Next</button>
+					
+					<br/><br/>
+					<schools-info items="schools" filter="searchText" />
+				</div>		
+			</div><!-- /.container -->
+			<div class="row"></div>
+		<!-- </div>   -->
+		<!--
+		<footer class="footer">
+		  <div class="container">
+			<p class="text-muted">Dev by: Jardel Novaes - Contact: <a href="mailto:jardelnovaes@hotmail.com"> jardelnovaes@hotmail.com</a></p>
+		  </div>
+		</footer>
+		-->
+	</body>  
   <script src="app/app.module.js"></script>
   <script src="app/components/appCivico/escolas/schoolController.js"></script>
   <script src="app/components/appCivico/escolas/schoolService.js"></script>

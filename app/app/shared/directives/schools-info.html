@@ -1,4 +1,21 @@
 <!-- <div ng-repeat="item in items | filter:searchText track by item.nome "> -->
-<div ng-repeat="item in items | filter:filterFied track by item.nome "> 
-	{{item.codEscola}} - {{item.endereco.uf}} - {{item.nome}}
+<div class="row-fluid" ng-repeat="item in items | filter:filterFied track by item.nome "> 
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+		<div class="panel panel-success">
+		  <div class="panel-heading">			
+			<label>Id: </label> {{item.codEscola}} <br/>
+			<label>UF: </label> {{item.endereco.uf}} <br/>
+			<label>Nome: </label> <a href="#">{{item.nome}}</a><br/>
+			<div class="clearfix"></div>
+		  </div>
+		  <!-- <div class="panel-body"></div> -->
+		</div>
+	</div>
 </div> 
+
+<!-- 
+Card views
+http://www.marcellop.com/bootplus/examples/fluid.html# 
+http://bootcards.org/
+http://materializecss.com/cards.html
+-->
