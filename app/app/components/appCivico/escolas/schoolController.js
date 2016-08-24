@@ -1,28 +1,40 @@
-app.controller("schoolController", ['$scope', 'schoolService', /*'$routeParams',*/ function($scope, schoolService /*, $routeParams*/) {
+app.controller("schoolController", ['$scope', 'schoolService', /*'$routeParams',*/ function($scope, schoolService /*, $routeParams*/) {	
 	$scope.schoolsPage = 1;
+	schoolService.queryParams.page = $scope.schoolsPage;
 	
 	$scope.location = {
 		name: "Em Joinvile, SC",
-		longitude: -26.30326424,
-		latitude: -48.83010864
+		longitude: -48.83010864,
+		latitude: -26.30326424
 	};
 	
+	//test
+	//schoolService.queryParams.latitude = -26.30326424; schoolService.queryParams.longitude = -48.83010864; 
+	//schoolService.queryParams.latitude = -26.30326424; schoolService.queryParams.longitude = -48.83010864; schoolService.queryParams.qty = 5;
+	schoolService.queryParams.uf = "SC"; schoolService.queryParams.city = "Joinville";
+	
 	$scope.getSchools = function() {
+		
+		//schoolService.schools($scope.location.longitude, $scope.location.latitude, $scope.schoolsPage-1)
 		schoolService.schools($scope.location.longitude, $scope.location.latitude, $scope.schoolsPage-1)
 			.success(function(data) { 
-				//console.log(data);
+				//console.log(data);				
 				$scope.schools = data;
 			});
 	};
 	
 	$scope.getNextSchools = function() {
-		$scope.schoolsPage++;
+		$scope.schoolsPage++;		
+		schoolService.queryParams.page = $scope.schoolsPage;
+		//schoolService.queryParams.page++;
 		$scope.getSchools();
 	}
 	
 	$scope.getPreviousSchools = function() {
 		if($scope.schoolsPage > 1){
 			$scope.schoolsPage--;
+			schoolService.queryParams.page = $scope.schoolsPage;
+			//schoolService.queryParams.page--;
 			$scope.getSchools();
 		}
 	}
